@@ -1,7 +1,6 @@
-# doma-kotlin-migrate-to-QueryDsl
+# doma-kotlin-migrate
 
 A product for migrating to QueryDsl with doma-kotlin
-
 
 ## Step1 - Install
 

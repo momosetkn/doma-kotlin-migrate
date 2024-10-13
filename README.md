@@ -1,5 +1,7 @@
 # doma-kotlin-migrate
 
+[![](https://jitpack.io/v/momosetkn/doma-kotlin-migrate.svg)](https://jitpack.io/#momosetkn/doma-kotlin-migrate)
+
 A product for migrating to QueryDsl with doma-kotlin
 
 ## Step1 - Install

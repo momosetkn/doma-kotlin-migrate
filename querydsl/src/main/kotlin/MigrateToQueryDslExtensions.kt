@@ -14,7 +14,7 @@ import org.seasar.doma.kotlin.jdbc.criteria.statement.KStatement
 // insert
 
 @Deprecated(
-    "KQueryDsl",
+    "Migrate to KQueryDsl method",
     replaceWith = ReplaceWith("this.insert(entityMetamodel).batch(entities)")
 )
 fun <ENTITY : Any> KQueryDsl.insert(
@@ -25,7 +25,7 @@ fun <ENTITY : Any> KQueryDsl.insert(
 }
 
 @Deprecated(
-    "KQueryDsl",
+    "Migrate to KQueryDsl method,
     replaceWith = ReplaceWith("this.insert(entityMetamodel, block).batch(entities)")
 )
 fun <ENTITY : Any> KQueryDsl.insert(
@@ -37,8 +37,8 @@ fun <ENTITY : Any> KQueryDsl.insert(
 }
 
 @Deprecated(
-    "KQueryDsl",
-    replaceWith = ReplaceWith("this.insert(entityMetamodel).batch(entity)")
+    "Migrate to KQueryDsl method,
+    replaceWith = ReplaceWith("this.insert(entityMetamodel).single(entity)")
 )
 fun <ENTITY : Any> KQueryDsl.insert(
     entityMetamodel: EntityMetamodel<ENTITY>,
@@ -48,8 +48,8 @@ fun <ENTITY : Any> KQueryDsl.insert(
 }
 
 @Deprecated(
-    "KQueryDsl",
-    replaceWith = ReplaceWith("this.insert(entityMetamodel, block).batch(entity)")
+    "Migrate to KQueryDsl method,
+    replaceWith = ReplaceWith("this.insert(entityMetamodel, block).single(entity)")
 )
 fun <ENTITY : Any> KQueryDsl.insert(
     entityMetamodel: EntityMetamodel<ENTITY>,
@@ -58,10 +58,11 @@ fun <ENTITY : Any> KQueryDsl.insert(
 ): KEntityqlInsertStatement<ENTITY> {
     return this.insert(entityMetamodel, block).single(entity)
 }
+
 // delete
 
 @Deprecated(
-    "KQueryDsl",
+    "Migrate to KQueryDsl method,
     replaceWith = ReplaceWith("this.delete(entityMetamodel).batch(entities)")
 )
 fun <ENTITY : Any> KQueryDsl.delete(
@@ -72,7 +73,7 @@ fun <ENTITY : Any> KQueryDsl.delete(
 }
 
 @Deprecated(
-    "KQueryDsl",
+    "Migrate to KQueryDsl method,
     replaceWith = ReplaceWith("this.delete(entityMetamodel, block).batch(entities)")
 )
 fun <ENTITY : Any> KQueryDsl.delete(
@@ -84,8 +85,8 @@ fun <ENTITY : Any> KQueryDsl.delete(
 }
 
 @Deprecated(
-    "KQueryDsl",
-    replaceWith = ReplaceWith("this.delete(entityMetamodel).batch(entity)")
+    "Migrate to KQueryDsl method,
+    replaceWith = ReplaceWith("this.delete(entityMetamodel).single(entity)")
 )
 fun <ENTITY : Any> KQueryDsl.delete(
     entityMetamodel: EntityMetamodel<ENTITY>,
@@ -95,8 +96,8 @@ fun <ENTITY : Any> KQueryDsl.delete(
 }
 
 @Deprecated(
-    "KQueryDsl",
-    replaceWith = ReplaceWith("this.delete(entityMetamodel, block).batch(entity)")
+    "Migrate to KQueryDsl method,
+    replaceWith = ReplaceWith("this.delete(entityMetamodel, block).single(entity)")
 )
 fun <ENTITY : Any> KQueryDsl.delete(
     entityMetamodel: EntityMetamodel<ENTITY>,
@@ -106,11 +107,10 @@ fun <ENTITY : Any> KQueryDsl.delete(
     return this.delete(entityMetamodel, block).single(entity)
 }
 
-
 // update
 
 @Deprecated(
-    "KQueryDsl",
+    "Migrate to KQueryDsl method,
     replaceWith = ReplaceWith("this.update(entityMetamodel).batch(entities)")
 )
 fun <ENTITY : Any> KQueryDsl.update(
@@ -121,7 +121,7 @@ fun <ENTITY : Any> KQueryDsl.update(
 }
 
 @Deprecated(
-    "KQueryDsl",
+    "Migrate to KQueryDsl method,
     replaceWith = ReplaceWith("this.update(entityMetamodel, block).batch(entities)")
 )
 fun <ENTITY : Any> KQueryDsl.update(
@@ -133,8 +133,8 @@ fun <ENTITY : Any> KQueryDsl.update(
 }
 
 @Deprecated(
-    "KQueryDsl",
-    replaceWith = ReplaceWith("this.update(entityMetamodel).batch(entity)")
+    "Migrate to KQueryDsl method,
+    replaceWith = ReplaceWith("this.update(entityMetamodel).single(entity)")
 )
 fun <ENTITY : Any> KQueryDsl.update(
     entityMetamodel: EntityMetamodel<ENTITY>,
@@ -144,8 +144,8 @@ fun <ENTITY : Any> KQueryDsl.update(
 }
 
 @Deprecated(
-    "KQueryDsl",
-    replaceWith = ReplaceWith("this.update(entityMetamodel, block).batch(entity)")
+    "Migrate to KQueryDsl method,
+    replaceWith = ReplaceWith("this.update(entityMetamodel, block).single(entity)")
 )
 fun <ENTITY : Any> KQueryDsl.update(
     entityMetamodel: EntityMetamodel<ENTITY>,

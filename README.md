@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.momosetkn.doma-kotlin-migrate:doma-kotlin-migrate-querydsl:0.0.1")
+    implementation("com.github.momosetkn.doma-kotlin-migrate:doma-kotlin-migrate-querydsl:0.0.2")
 }
 ```
 

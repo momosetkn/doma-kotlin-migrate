@@ -19,7 +19,11 @@ dependencies {
 }
 ```
 
-## Step2 - Add import
+## Step2 - Replace your code
+
+Replace to `KQueryDsl` from `KEntityql` by your IDE.
+
+## Step3 - Add import
 
 Add import to your code.
 
@@ -33,7 +37,7 @@ You can add imports in bulk with the following shell.
 find src/main/kotlin/<target_package> -type f -name "*.kt" -exec sed -i 's/^\(package .*\)/\1\n\nimport momosetkn.doma.migrate.querydsl.*/g' {} +
 ```
 
-## Step3 - Replace with JetBrains IDE
+## Step4 - Replace with JetBrains IDE
 
 <kbd>Alt + Enter</kbd>(I you use Mac OS, <kbd>Option + Return</kbd>) on target code.
 Click `Replace uses of...`.

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions", "InvalidPackageDeclaration")
+
 package momosetkn.doma.migrate.querydsl
 
 import org.seasar.doma.jdbc.BatchResult
@@ -154,4 +156,3 @@ fun <ENTITY : Any> KQueryDsl.update(
 ): KStatement<Result<ENTITY>> {
     return this.update(entityMetamodel, block).single(entity)
 }
-

@@ -3,7 +3,8 @@
 [![](https://jitpack.io/v/momosetkn/doma-kotlin-migrate.svg)](https://jitpack.io/#momosetkn/doma-kotlin-migrate)
 
 A product for migrating to [QueryDsl](https://github.com/domaframework/doma/pull/1203) with doma-kotlin.
-It provides a method signature similar to Entityql, but it will be marked as @Deprecated.
+It provides Extensions functions like to Entityql, with @Deprecated.
+You can migrate to QueryDsl with minimal changes to your existing code.
 
 ## Step1 - Install
 

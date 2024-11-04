@@ -30,12 +30,20 @@ Add import to your code.
 
 ```kotlin
 import momosetkn.doma.migrate.querydsl.*
+
+// If you avoid wild import. please use bellow code.
+import momosetkn.doma.migrate.querydsl.delete
+import momosetkn.doma.migrate.querydsl.update
+import momosetkn.doma.migrate.querydsl.insert
 ```
 
 You can add imports in bulk with the following shell.
 
 ```bash
 find src/main/kotlin/<target_package> -type f -name "*.kt" -exec sed -i 's/^\(package .*\)/\1\n\nimport momosetkn.doma.migrate.querydsl.*/g' {} +
+
+# If you avoid wild import. please use bellow code.
+find src/main/kotlin/<target_package> -type f -name "*.kt" -exec sed -i 's/^\(package .*\)/\1\n\nimport momosetkn.doma.migrate.querydsl.delete\nimport momosetkn.doma.migrate.querydsl.insert\nimport momosetkn.doma.migrate.querydsl.update/g' {} +
 ```
 
 ## Step4 - Replace with JetBrains IDE

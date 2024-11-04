@@ -46,7 +46,7 @@ find src/main/kotlin/<target_package> -type f -name "*.kt" -exec sed -i 's/^\(pa
 find src/main/kotlin/<target_package> -type f -name "*.kt" -exec sed -i 's/^\(package .*\)/\1\n\nimport momosetkn.doma.migrate.querydsl.delete\nimport momosetkn.doma.migrate.querydsl.insert\nimport momosetkn.doma.migrate.querydsl.update/g' {} +
 ```
 
-## Step4 - Replace with JetBrains IDE
+## Step4 - Replace deprecated with JetBrains IDE
 
 <kbd>Alt + Enter</kbd>(I you use Mac OS, <kbd>Option + Return</kbd>) on target code.
 Click `Replace uses of...`.

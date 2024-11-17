@@ -93,6 +93,8 @@ fun <T : Any> JdbcDatabase.runQueryWithAssociate(
         }
         start.maxOfOrNull { rec(it) } ?: 0
     }.reversed()
+    // original entity to associated entity
+    val associatedEntityMap = mutableMapOf<Any, Any>()
     val associatedEntitySets = entitySets.entries
         .sortedBy {
             sortedEntityMetas.indexOf(it.key)
@@ -106,6 +108,7 @@ fun <T : Any> JdbcDatabase.runQueryWithAssociate(
                 entityMeta = entityMeta,
                 allEntityMetas = entityMetas,
                 items = items,
+                associatedEntityMap = associatedEntityMap
             )
         }
     val rootEntityMeta = (query.context as SelectContext<*, *, *>).target
@@ -116,12 +119,14 @@ fun <T : Any> JdbcDatabase.runQueryWithAssociate(
     return rootEntitySet.second.toList() as List<T>
 }
 
+@Suppress("LongParameterList")
 private fun associate(
     contextList: List<AssociateDslContext>,
     entityStore: EntityStore,
     entityMeta: EntityMetamodel<*, *, *>,
     allEntityMetas: Set<EntityMetamodel<*, *, *>>,
-    items: Set<Any>
+    items: Set<Any>,
+    associatedEntityMap: MutableMap<Any, Any>
 ): List<Any> {
     val contexts = allEntityMetas.flatMap { otherEntityMeta ->
         val key = Pair(entityMeta, otherEntityMeta)
@@ -136,18 +141,20 @@ private fun associate(
             val map = entityStore.oneToMany(context.entityMetaLeft, context.entityMetaRight)
             val actual = map[item]
             actual?.forEach { a ->
+                val associated = associatedEntityMap[a] ?: a
                 when {
                     context.associateBlock != null ->
-                        context.associateBlock(mutableItem, a)
+                        context.associateBlock(mutableItem, associated)
 
                     context.associateWithBlock != null -> {
-                        mutableItem = context.associateWithBlock(mutableItem, a)
+                        mutableItem = context.associateWithBlock(mutableItem, associated)
                     }
 
                     else -> mutableItem
                 }
             }
         }
+        associatedEntityMap[item] = mutableItem
         mutableItem
     }
 }

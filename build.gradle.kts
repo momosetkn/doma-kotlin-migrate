@@ -1,4 +1,3 @@
-val kotlinVersion: String by project
 val artifactIdPrefix: String by project
 val productVersion: String by project
 
@@ -39,6 +38,11 @@ allprojects {
 
     ktlint {
         version.set("1.3.1")
+        filter {
+            exclude { entry ->
+                entry.file.toString().contains("/generated/")
+            }
+        }
     }
 }
 
